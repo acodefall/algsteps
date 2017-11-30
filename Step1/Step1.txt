@@ -1,0 +1,19 @@
+Following problems are based on Decision Tree
+	Binary search using while loop
+		https://github.com/acodefall/algCpp/blob/master/algCpp/algCpp/Array/BinSearchWhileLoop.h
+
+	Binary search using For loop
+		https://github.com/acodefall/algCpp/blob/master/algCpp/algCpp/BinSearch/BinarySearchForLoop.h
+
+		
+	Find Square Root of a Number
+		https://github.com/acodefall/algCpp/blob/master/algCpp/algCpp/Array/FindSquareRoot.h	
+		
+	Compute the result of something like (2 ^ 5)
+		https://github.com/acodefall/algCpp/blob/master/algCpp/algCpp/Array/XToPowerN.h
+		
+	
+	Binary search when array is unknown
+		https://github.com/acodefall/algCpp/blob/master/algCpp/algCpp/BinSearch/BinarySearchSizeUnknown.h
+		
+	
