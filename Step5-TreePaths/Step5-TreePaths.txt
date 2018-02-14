@@ -1,0 +1,42 @@
+Tracking path to a node in Tree
+	-Find the distance between node and Root
+		https://github.com/acodefall/algCpp/blob/master/algCpp/algCpp/Tree/FindNodeDistanceFromRoot.h
+	-Find the distance between node and leaf
+		https://github.com/acodefall/algCpp/blob/master/algCpp/algCpp/Tree/FindNodeDistanceKFromLeaf.h
+	-Record the Path to Node(K) in binaty Tree
+		https://github.com/acodefall/algCpp/blob/master/algCpp/algCpp/Tree/FindPathToNodeValueKInPlainBinaryTree.h
+	-Print all the paths in a tree
+		https://github.com/acodefall/algCpp/blob/master/algCpp/algCpp/Tree/PrintAllPathsOfTree.h
+	
+Logic:
+		Tree has several paths running from Root to Node.
+		Every nodes appears in several pahs also.
+		We have to record hem in a List object. One list instance will have one path running from Root to Leaf.
+		List objects are passed as recursion param. Tree is traversed using in-order traversal, and All along the way record the nodes
+		in List object.
+		When cursor reaches the LEAF, we know that this is end of the list, PRINT the contents of list object.
+		
+		Use pre-order traversal and record the nodes 
+		void FindPathToNodeValueKInPlainBinaryTreeX(NodeTree* root, vector<NodeTree*> Nodelist, int K)
+		{
+			if (root)
+			{
+				Nodelist.push_back(root); //Add current node's value to Node List
+				if (root->d == K)
+				{	//Found the value that we were looking, so no need to explore child nodes. RETURN, but print the Path before returning
+					cout << "Node " << K << " found ";
+					for (auto itr = Nodelist.begin(); itr != Nodelist.end(); itr++)
+					{
+						cout << setw(4) << (*itr)->d;
+					}
+					cout << endl << endl;
+					return;
+				}
+				FindPathToNodeValueKInPlainBinaryTreeX(root->L, Nodelist, K);
+				FindPathToNodeValueKInPlainBinaryTreeX(root->R, Nodelist, K);
+			}
+			else
+			{
+				return;
+			}
+		}

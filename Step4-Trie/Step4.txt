@@ -1,0 +1,36 @@
+TRIE problems came in 2 types
+	-Store meta-data in EOW node
+	-Iterate the thread-of-words and print the each individual words found in that thread Ex:Newspaper
+	-LCW
+
+Standard solution will store the METADATA in a LIST object on the node used for representing the last letter of the WORD.
+Examples are TopRated Keywords, PhoneDirectory, InvertedIndex, AnagramList.
+    
+    -In case of PhoneDirectory example, METADATA is the List of phone numbers associated with a person's name. 
+     Say person "ABC" has two phone numbers 123 and 678. List object of Node-c will have '123' and '678'
+    
+    -In case of SuffixWordList example, if the user types 'new' then show the suffixes {news, newspaper}. METADATA is {news, newspaper}
+    
+    -In case of "Word occurence count" example, METADATA is occurence count
+    
+    -In case of "Anagrams" example, if the user types 'ART' then show {rat, art}. METADATA is {rat, art}
+    
+Node
+{
+    bool EOF
+    Dictionary<char, Node> childNodes;
+    List<string> Metadata;
+    
+    
+    Insert(word, List<string> metadata)
+    {
+    
+    }
+    
+    find(word, ref  List<string> metadata)
+    {
+    
+    }
+}
+
+E

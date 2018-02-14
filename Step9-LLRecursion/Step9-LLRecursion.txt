@@ -1,0 +1,6 @@
+LL Recursion
+	-Add the digits stored in two LLs
+		https://github.com/acodefall/algCpp/blob/master/algCpp/algCpp/LinkedList/AddTwoLLUsingRecursion.h
+		
+	-Check whether the LL content is Palidrone
+		https://github.com/acodefall/algCpp/blob/master/algCpp/algCpp/LinkedList/PalidroneUsingRecursion.h

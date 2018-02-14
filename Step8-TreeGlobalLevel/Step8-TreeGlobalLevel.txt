@@ -1,0 +1,11 @@
+Track the level of the nodes using a global variable.
+
+	Find deepest Left node
+		https://github.com/acodefall/algCpp/blob/master/algCpp/algCpp/Tree/FindDeepestLeftNode.h
+		
+		
+	Find deepest node 
+		https://github.com/acodefall/algCpp/blob/master/algCpp/algCpp/Tree/FindDeepestNodeInPlainTree.h
+		
+	Print left facing nodes
+		https://github.com/acodefall/algCpp/blob/master/algCpp/algCpp/Tree/PrintLeftFacingNodes.h

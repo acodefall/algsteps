@@ -1,0 +1,88 @@
+Recursion can be viewed as U turn.
+Rec(param)
+{
+    if(condition to break recursion)
+        RETURN generated-real-value;---(R1) This is where reursion makes U-turn
+                                    
+    if(something)
+        Pre-recursion-code-------------This executes before U-turn
+                                        What can Pre recursion code do?
+                                            -May change the parameter sent to recursion
+                                            -May also decide to not make the recursion call at all. In that case recursion will make a premature U-turn
+					    -May also make multiple recursion calls with modified parameter
+                                            
+        
+        x = Rec();---------------------Recursion call
+        
+        Post-recursion-code------------This executes after U-turn                   
+                                        What can Post-recursion code do?
+                                            -May change the value returned by recursion call
+											-If there were multiple recursion calls, there will be multiple return values. 
+											 Post-recursion code may AND or OR them and return that output to caller
+                                            -MUST Bubble up the value returned by recursion call.
+											
+											
+        
+        RETURN x;----------------------(R2)     
+}
+
+What is the differece between return statements R1 and R2?
+    R1 generates or computes a VALUE, and returns it to caller. 
+    Caller then bubbles it to higher level throgh R2.
+    So R1 generates the VALUE and R2 simply propagates whatever R1 gave.
+    Both R1 and R2 must be present. If we forget R2 then VALUE will not reach the eventual caller.
+    
+Recursion parameters? 	
+	In the pre-recursion phase, stack is winding, and outer-layer can pass value to next-layer using by-value-param.
+	In the post-recursion pahse, stack is unwinding, and inner-layer can pass value to outer-layer using by-reference-param.
+	When the stack-unwinds, control goes to outer layer, the outer-caller gets the value. 
+	
+	Inner layer can also use Return code for trasporting value to outer-layer. But there can be only one retrurn code
+	so it is better to pass as part of by-referebce-recursion parameter.
+
+	Example for usage of by-referece: 
+	Say we want to the numbers stored in two LL.
+	LL iteration cursor goes L->R where as additioon should happen in R->L direction.
+	So Addition will be implemented in post-rec code. Addition will generate CarryOver and this needs to be passed to
+	over-layer, and we pass the carryOver using by-ref-recursion param.
+					
+			   
+	
+Example	Multiple recursions.
+	https://github.com/acodefall/algCpp/blob/master/algCpp/algCpp/MatrixPath/CountPathsInMatrix.h
+	Here there are two recursion calls, post-recursion call adds the values returned by two recursion calls,
+	and return it to next higher level.
+	
+	Rec(param)
+	{
+		if(condition to break recursion)
+			RETURN generated-real-value;
+										
+		if(something)
+			x1 = Rec();---------------------Recursion call
+			x2 = Rec();---------------------Recursion call
+			//Post-recursion-code
+			x = x1 + 	x2;
+			RETURN x;----------------------(R2)     
+	}
+	
+	
+Example for Passing parameters 
+	Say we want to the numbers stored in two LL.
+	LL iteration cursor goes L->R where as additioon should happen in R->L direction.
+	So Addition will be implemented in post-rec code. Addition will generate CarryOver and this needs to be passed to
+	over-layer, and we pass the carryOver using by-ref-recursion param.
+	
+	Rec(p1, *p2, *p3)
+	{
+		if(condition to break recursion)
+			RETURN generated-real-value;
+										
+		
+		x1 = Rec(p1, p2, p3);---------------------Recursion call. P1 is by-value
+		*p2 = someValue;	 ---------------------Passed as by-ref(as stack unwinds caller will get this value)
+		*p3 = someValue;	 ---------------------Passed as by-ref(as stack unwinds caller will get this value)	
+		
+		RETURN x;----------------------(R2)     
+	}
+	

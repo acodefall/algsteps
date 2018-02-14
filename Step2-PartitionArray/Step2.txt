@@ -1,0 +1,19 @@
+Partition the arry in to two parts
+	Roughtly speaking there are two types of partitioning. 
+		3-way partitioning: Here partitionValue sits on the border of low-section and high-section. 
+					input: {4, 6, 9, 5, 8, 7, 11, 3 }; //partitionValue = 8
+				   output: {4, 6, 5, 3, 7, 8, 11, 9 };
+				            .............  *  ......       
+							
+		2-way partitioning: Here there is no border-value; all we have is low-section and high-section. 
+				  
+				  input:  { 2, 3, 2, 3, 3, 2, 3 }
+				  output: { 2, 2, 2, 3, 3, 3, 3 } 
+				            .......  ...........
+							
+					
+		https://github.com/acodefall/algCpp/blob/master/algCpp/algCpp/Array/PartitionArray.h
+		
+		https://github.com/acodefall/algCpp/blob/master/algCpp/algCpp/Sort/TwoColorSorting.h
+		
+		https://github.com/acodefall/algCpp/blob/master/algCpp/algCpp/Sort/ThreeColorSorting.h

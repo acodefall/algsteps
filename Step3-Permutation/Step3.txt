@@ -1,0 +1,71 @@
+Combination
+			-Combination of 3 out of 5 integers (also powerset problem)
+			-Combinations that add up to  VALUE (also coin change problem. find the comb of coins that add to a sum)
+			This can be solved using ForLoop method
+			https://github.com/acodefall/algCpp/blob/master/algCpp/algCpp/Set/CombinationToWidth.h
+			
+Plain Bit generator
+			Generate the bit sequence that contains 0 and 1
+			https://github.com/acodefall/algCpp/blob/master/algCpp/algCpp/Set/BitGen.h
+
+Permutation
+			void PermutationWithDupesKofN(char src[], int srcLen, char out[], int outIndex, int K)
+			{
+				if (outIndex == K)
+				{
+					for (int a = 0; a < outIndex; a++)
+					{
+						cout << out[a] << " ";
+					}
+					return;
+				}
+				for (int i = 0; i < srcLen; i++)
+				{
+					out[outIndex] = src[i];
+					PermutationWithDupesKofN(src, srcLen, out, outIndex + 1, K);
+				}
+			}
+			
+CombinationTillSum
+			void CombinationToTargetSumRecursion(int* src, int srcLen, int srcIndex, int* output, int outIndex, int TargetSum, int Sum)
+			{
+				if (Sum == TargetSum)
+				{
+					for (int i = 0; i < outIndex; i++)
+						cout << output[i] << " ";
+					return;
+				}
+
+				if (Sum > TargetSum)
+					return;
+				
+				for (int i = srcIndex; i <	srcLen; i++) //'count - count' is same as index so use "<="
+				{
+					output[outIndex] = src[i];
+					CombinationToTargetSumRecursion(src, srcLen, i+1, output, outIndex+1, TargetSum, Sum + src[i]);
+				}
+			}
+			
+CombinationUsingBitGen
+			oid CombinationsAllBitGen(int* output, int outIndex, int outputWidth)
+			{
+				if ( outIndex == outputWidth)
+				{
+					for (int i = 0; i < outIndex; i++)
+					{
+						cout << output[i] << " ";
+					}
+					cout << endl;
+				}
+				
+				
+				//ENABLE the BIT.
+				output[outIndex] = 1;
+				CombinationsAllBitGen(output, outIndex + 1, outputWidth);
+					
+				//dis-ENABLE the BIT.
+				output[outIndex] = 0;
+				CombinationsAllBitGen( output, outIndex + 1, outputWidth);
+			}
+
+
