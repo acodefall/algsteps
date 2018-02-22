@@ -1,11 +1,42 @@
+Overview
+	src= ABCD
+	     
+             //comb of len 2
+	      AB, BC, CD, AD, etc..
+             
+             //powerset of len 2
+               "", "A", "B", "C", "D", "AB", "BC", "CD"
+
+             //Perm of len 2
+               AA, BB, CC, AB, BA, etc..
+
 Combination
-			-Combination of 3 out of 5 integers (also powerset problem)
+			-Does not support Duplicates
 			-Combinations that add up to  VALUE (also coin change problem. find the comb of coins that add to a sum)
 			This can be solved using ForLoop method
 			https://github.com/acodefall/algCpp/blob/master/algCpp/algCpp/Set/CombinationToWidth.h
-			
+
+PowerSet		
+			-PowerSet does not support duplicates like combination and similarity ends there.
+			 In case of Combination generation, if the combination length is specified as 2, 
+                         then every combination must have 2 elements of src-array.
+               		 Where as in case of Powerset, there can be a empty-combination; 1-Letter-combination; 2-Letter-combination.
+		         Think of Powerset as binary number sequence with 0s and 1s. 
+		         Combination with ALL 0s("000"), stands for Empty-set;
+		         Combination with "001" will have just only one letter, and resulting combination is "A"
+		         Combination with "110" will be "AB"
+		         Combination with "111" will be "ABC"
+			 Combinations of length X must have length PowerSet
+			-Combination of 3 out of 5 integers (also powerset problem)
+			-Use bitgenerator code
+
+			Recursion goes until the src-len. Maintain the length of enabled its.
+			When recursio breaks, ignore the combinations whose length is more than 'specified-length'
+	                
+
 Plain Bit generator
 			Generate the bit sequence that contains 0 and 1
+			Does not use For-Loop for making rec-call(unlike combination generator code)
 			https://github.com/acodefall/algCpp/blob/master/algCpp/algCpp/Set/BitGen.h
 
 Permutation
